@@ -53,6 +53,13 @@ document.querySelectorAll('.work figure,.service-grid article').forEach((card) =
   card.style.setProperty('--my', `${event.clientY - rect.top}px`);
 }));
 
+document.querySelectorAll('.booking-choices,.date-row,.time-row').forEach((group) => {
+  group.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => {
+    group.querySelectorAll('button').forEach((item) => item.classList.remove('active'));
+    button.classList.add('active');
+  }));
+});
+
 document.querySelector('form').addEventListener('submit', (event) => {
   event.preventDefault();
   const toast = document.querySelector('.toast');
