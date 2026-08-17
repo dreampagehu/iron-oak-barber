@@ -1,4 +1,3 @@
-const root = document.documentElement;
 const hero = document.querySelector('.assembly-hero');
 const header = document.querySelector('header');
 const menu = document.querySelector('.menu');
@@ -8,14 +7,19 @@ menu.addEventListener('click', () => header.classList.toggle('open'));
 document.querySelectorAll('nav a').forEach((link) => link.addEventListener('click', () => header.classList.remove('open')));
 
 let ticking = false;
+let lastPercent = -1;
 const renderAssembly = () => {
   const rect = hero.getBoundingClientRect();
   const travel = Math.max(1, hero.offsetHeight - window.innerHeight);
   const raw = Math.min(1, Math.max(0, -rect.top / travel));
   const eased = raw < .5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
-  root.style.setProperty('--p', eased.toFixed(4));
-  root.style.setProperty('--inv', (1 - eased).toFixed(4));
-  percent.textContent = String(Math.round(eased * 100)).padStart(2, '0');
+  hero.style.setProperty('--p', eased.toFixed(4));
+  hero.style.setProperty('--inv', (1 - eased).toFixed(4));
+  const nextPercent = Math.round(eased * 100);
+  if (nextPercent !== lastPercent) {
+    percent.textContent = String(nextPercent).padStart(2, '0');
+    lastPercent = nextPercent;
+  }
   header.classList.toggle('scrolled', window.scrollY > 40);
   ticking = false;
 };
@@ -25,11 +29,6 @@ window.addEventListener('resize', requestAssembly);
 renderAssembly();
 
 document.querySelectorAll('video').forEach((video) => video.addEventListener('click', () => video.paused ? video.play() : video.pause()));
-
-const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-  if (entry.isIntersecting) entry.target.classList.add('visible');
-}), { threshold: .08 });
-document.querySelectorAll('main > section:not(.assembly-hero)').forEach((section) => { section.classList.add('reveal'); observer.observe(section); });
 
 const itemObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
   if (entry.isIntersecting) {

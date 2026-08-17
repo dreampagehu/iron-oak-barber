@@ -40,3 +40,9 @@ h1{font-weight:700;letter-spacing:-.065em}h2{font-weight:650;letter-spacing:-.05
 .scan-line{top:calc(8% + var(--p)*84%);height:2px;box-shadow:0 0 10px var(--blue),0 0 28px var(--blue)}
 .assembly-stage:after{content:"BLADE  /  MOTOR  /  TORQUE  /  CONTROL";position:absolute;z-index:6;left:30px;bottom:28px;font:600 8px Sora,sans-serif;letter-spacing:.2em;color:#456064;opacity:calc(.3 + var(--p)*.7)}
 @media(max-width:900px){h1{letter-spacing:-.06em}.hero-copy h1{font-size:clamp(43px,12.5vw,59px);line-height:.92}.assembly-stage:after{left:18px;bottom:18px;font-size:6px;max-width:160px;line-height:1.7}}
+body:before{display:none}
+header,header.scrolled{backdrop-filter:none;background:#f5f7f6f2}
+.assembly-status{backdrop-filter:none;background:#f5f7f2f2}
+.assembly-stage{contain:layout paint style;will-change:auto}
+.clipper{mix-blend-mode:normal}.clipper.ghost{mix-blend-mode:multiply;will-change:opacity,transform}.p6{will-change:opacity}
+.reveal{opacity:1;transform:none;transition:none}
