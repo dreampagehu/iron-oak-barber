@@ -32,3 +32,11 @@ body,h1,h2,h3,.kicker,.brand,.pill,.trust b,.assembly-status b,.stage-copy,.kine
 .p5{transform:translate3d(calc(var(--inv)*104px),calc(var(--inv)*70px),calc(var(--inv)*-72px)) rotateX(calc(var(--inv)*-22deg)) rotateZ(calc(var(--inv)*8deg))}
 .p6{transform:translate3d(calc(var(--inv)*28px),calc(var(--inv)*116px),calc(var(--inv)*90px)) rotateX(calc(var(--inv)*22deg)) rotateZ(calc(var(--inv)*5deg))}
 @media(max-width:900px){.assembly-hero{height:185svh}.hero-copy{transform:none}.assembly-stage{transform:none}.hero-copy h1{font-weight:800}.hero-copy h1 em{color:var(--petrol);-webkit-text-stroke:0}}
+body,h1,h2,h3,.kicker,.brand,.pill,.trust b,.assembly-status b,.stage-copy,.kinetic-strip div,.rating b,.service-grid span,.process-grid b,.video-ui small,.video-ui b,.work figcaption{font-family:Sora,sans-serif}
+h1{font-weight:700;letter-spacing:-.065em}h2{font-weight:650;letter-spacing:-.055em}.hero-copy h1 em{font-weight:500;color:#183f46}
+.p1,.p2,.p3,.p4,.p5{display:none}
+.clipper.ghost{opacity:calc(.18 - var(--p)*.1);filter:grayscale(1) contrast(1.35) brightness(1.08);transform:translateY(calc(var(--inv)*24px));mix-blend-mode:multiply}
+.p6{display:block;clip-path:none;transform:none;opacity:var(--p);filter:drop-shadow(0 30px 28px #10212635) saturate(.92) contrast(1.08);transition:opacity .08s linear}
+.scan-line{top:calc(8% + var(--p)*84%);height:2px;box-shadow:0 0 10px var(--blue),0 0 28px var(--blue)}
+.assembly-stage:after{content:"BLADE  /  MOTOR  /  TORQUE  /  CONTROL";position:absolute;z-index:6;left:30px;bottom:28px;font:600 8px Sora,sans-serif;letter-spacing:.2em;color:#456064;opacity:calc(.3 + var(--p)*.7)}
+@media(max-width:900px){h1{letter-spacing:-.06em}.hero-copy h1{font-size:clamp(43px,12.5vw,59px);line-height:.92}.assembly-stage:after{left:18px;bottom:18px;font-size:6px;max-width:160px;line-height:1.7}}
